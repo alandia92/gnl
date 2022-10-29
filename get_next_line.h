@@ -6,7 +6,23 @@
 /*   By: arrate <arrate@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 12:39:38 by arrate            #+#    #+#             */
-/*   Updated: 2022/10/29 12:39:39 by arrate           ###   ########.fr       */
+/*   Updated: 2022/10/29 12:47:32 by arrate           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1
+# endif
+
+# include <stdlib.h>
+# include <unistd.h>
+
+char    *ft_strchr(char *s, int c);
+size_t  ft_strlen(const char *s);
+char    *ft_strdup(char const *s1);
+char    *ft_strjoin(char *s1, char *s2);
+
+#endif

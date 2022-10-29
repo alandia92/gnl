@@ -6,14 +6,11 @@
 /*   By: arrate <arrate@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 12:39:30 by arrate            #+#    #+#             */
-/*   Updated: 2022/10/29 12:39:31 by arrate           ###   ########.fr       */
+/*   Updated: 2022/10/29 12:45:59 by arrate           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-
-# include <stdlib.h>
-# include <unistd.h>
+# include "get_next_line.h"
 
 char    *ft_strchr(char *s, int c)
 {
