@@ -6,7 +6,7 @@
 /*   By: arrate <arrate@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 12:39:30 by arrate            #+#    #+#             */
-/*   Updated: 2022/10/29 12:45:59 by arrate           ###   ########.fr       */
+/*   Updated: 2022/10/29 12:56:07 by arrate           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,16 @@ char    *ft_strdup(char const *s1)
         return(NULL);
     while (s1[i])
         i++;
-    str = malloc(sizeof (char *) s1[i+1])
-    if (!str)
+    str = malloc(sizeof (char) * s1[i+1]);
+    if(!str)
     {
-        free (s1)
+        free (s1);
         return (NULL);
     }
     i = 0;
     while (s1[i])
     {
-        str[i] = s1[i]
+        str[i] = s1[i];
         i++;
     }
     str[i] = 0;
@@ -70,7 +70,7 @@ char *ft_strjoin(char *s1, char *s2)
 
     if(!s1 && !s2)
         return (NULL);
-    str = malloc (sizeof (char *) (len + 1));
+    str = malloc (sizeof (char) * (len + 1));
     if (!str)
         return(NULL);
     i = -1;
