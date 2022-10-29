@@ -1,14 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   gnl.c                                              :+:      :+:    :+:   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arrate <arrate@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/23 18:17:01 by arrate            #+#    #+#             */
-/*   Updated: 2022/10/29 11:56:50 by arrate           ###   ########.fr       */
+/*   Created: 2022/10/29 12:39:30 by arrate            #+#    #+#             */
+/*   Updated: 2022/10/29 12:39:31 by arrate           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 
 # include <stdlib.h>
@@ -47,5 +48,42 @@ char    *ft_strdup(char const *s1)
     while (s1[i])
         i++;
     str = malloc(sizeof (char *) s1[i+1])
-    if 
+    if (!str)
+    {
+        free (s1)
+        return (NULL);
+    }
+    i = 0;
+    while (s1[i])
+    {
+        str[i] = s1[i]
+        i++;
+    }
+    str[i] = 0;
+    free(s1);
+    return(str[i]);
 }
+
+char *ft_strjoin(char *s1, char *s2)
+{
+    size_t  i;
+    size_t  j;
+    int     len;
+    char    *str;
+
+    if(!s1 && !s2)
+        return (NULL);
+    str = malloc (sizeof (char *) (len + 1));
+    if (!str)
+        return(NULL);
+    i = -1;
+    while(s1[++i])
+        str[i] = s1[i];
+    j = -1;
+    while (s2 [j])
+        str[i++] = s2 [j++];
+    str[len] = 0;
+    free(s1);
+    return (str);
+}
+
