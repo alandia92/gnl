@@ -6,7 +6,7 @@
 /*   By: arlandia <arlandia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 12:39:30 by arrate            #+#    #+#             */
-/*   Updated: 2022/11/02 16:44:46 by arlandia         ###   ########.fr       */
+/*   Updated: 2022/11/02 20:49:04 by arlandia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,7 @@ char	*ft_strdup(char const *s1)
 		i++;
 	str = malloc(sizeof (char) * s1[i+1]);
 	if (!str)
-	{
-		free (s1);
-		return (NULL);
-	}
+		return (free (s1), NULL);
 	i = 0;
 	while (s1[i])
 	{
@@ -72,7 +69,7 @@ char	*ft_strjoin(char *s1, char *s2)
 		return (NULL);
 	str = malloc (sizeof (char) * (len + 1));
 	if (!str)
-		return (NULL);
+		return (free (s1), NULL);
 	i = -1;
 	while (s1[++i])
 		str[i] = s1[i];
@@ -80,6 +77,28 @@ char	*ft_strjoin(char *s1, char *s2)
 	while (s2 [j])
 		str[i++] = s2 [j++];
 	str[len] = 0;
-	free(s1);
-	return (str);
+	return (free (s1), free(s2), str);
+}
+
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	char	*copy;
+	size_t	i;
+
+	if (len > (size_t)ft_strlen(s))
+		len = (size_t)ft_strlen(s);
+	if (start > (unsigned int)ft_strlen(s))
+		start = ft_strlen(s);
+	copy = (char *)malloc(sizeof(char) * (len + 1));
+	if (copy == 0)
+		return (0);
+	i = 0;
+	while (s[i + start] && len)
+	{
+		copy[i] = s[i + start];
+		i++;
+		len--;
+	}
+	copy[i] = '\0';
+	return (copy);
 }
