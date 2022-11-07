@@ -6,7 +6,7 @@
 /*   By: arlandia <arlandia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 12:39:30 by arrate            #+#    #+#             */
-/*   Updated: 2022/11/02 20:49:04 by arlandia         ###   ########.fr       */
+/*   Updated: 2022/11/07 16:40:24 by arlandia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,25 +80,25 @@ char	*ft_strjoin(char *s1, char *s2)
 	return (free (s1), free(s2), str);
 }
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
-{
-	char	*copy;
-	size_t	i;
+// char	*ft_substr(char const *s, unsigned int start, size_t len)
+// {
+// 	char	*copy;
+// 	size_t	i;
 
-	if (len > (size_t)ft_strlen(s))
-		len = (size_t)ft_strlen(s);
-	if (start > (unsigned int)ft_strlen(s))
-		start = ft_strlen(s);
-	copy = (char *)malloc(sizeof(char) * (len + 1));
-	if (copy == 0)
-		return (0);
-	i = 0;
-	while (s[i + start] && len)
-	{
-		copy[i] = s[i + start];
-		i++;
-		len--;
-	}
-	copy[i] = '\0';
-	return (copy);
-}
+// 	if (len > (size_t)ft_strlen(s))
+// 		len = (size_t)ft_strlen(s);
+// 	if (start > (unsigned int)ft_strlen(s))
+// 		start = ft_strlen(s);
+// 	copy = (char *)malloc(sizeof(char) * (len + 1));
+// 	if (copy == 0)
+// 		return (0);
+// 	i = 0;
+// 	while (s[i + start] && len)
+// 	{
+// 		copy[i] = s[i + start];
+// 		i++;
+// 		len--;
+// 	}
+// 	copy[i] = '\0';
+// 	return (copy);
+// }
