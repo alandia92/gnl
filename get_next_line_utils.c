@@ -6,7 +6,7 @@
 /*   By: arlandia <arlandia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 12:39:30 by arrate            #+#    #+#             */
-/*   Updated: 2022/11/07 16:40:24 by arlandia         ###   ########.fr       */
+/*   Updated: 2022/11/07 18:06:19 by mvalient         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,15 @@ char	*ft_strchr(char *s, int c)
 {
 	int	i;
 
-	i = 0;
-	if (!s)
-		return (NULL);
-	while (s[i] == (char) c)
-		return ((char *) &s[i]);
-	i++;
-	return (0);
+	i = -1;
+	while (s[++i])
+	{
+		if (s[i] == (c % 256))
+			return ((char *)&s[i]);
+	}
+	if (s[i] == (c % 256))
+		return ((char *)&s[i]);
+	return (NULL);
 }
 
 size_t 	ft_strlen(const char *s)
@@ -35,11 +37,12 @@ size_t 	ft_strlen(const char *s)
 	return (i);
 }
 
-char	*ft_strdup(char const *s1)
+char	*ft_strdup(char *s1)
 {
 	char	*str;
-	size_t	i;
+	size_t i;
 
+	i = 0;
 	if (!s1)
 		return (NULL);
 	while (s1[i])
@@ -55,16 +58,17 @@ char	*ft_strdup(char const *s1)
 	}
 	str[i] = 0;
 	free(s1);
-	return (str[i]);
+	return (&str[i]);
 }
 
 char	*ft_strjoin(char *s1, char *s2)
 {
-	size_t	i;
-	size_t	j;
+	int	i;
+	int	j;
 	int		len;
 	char	*str;
 
+	len = ft_strlen(s1) + ft_strlen(s2);
 	if (!s1 && !s2)
 		return (NULL);
 	str = malloc (sizeof (char) * (len + 1));
@@ -73,11 +77,13 @@ char	*ft_strjoin(char *s1, char *s2)
 	i = -1;
 	while (s1[++i])
 		str[i] = s1[i];
-	j = -1;
-	while (s2 [j])
+	j = 0;
+	while (s2[j])
 		str[i++] = s2 [j++];
 	str[len] = 0;
-	return (free (s1), free(s2), str);
+	free (s1);
+	//free(s2);
+	return (str);
 }
 
 // char	*ft_substr(char const *s, unsigned int start, size_t len)
