@@ -6,7 +6,7 @@
 /*   By: arlandia <arlandia@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 18:53:14 by arlandia          #+#    #+#             */
-/*   Updated: 2022/11/08 16:09:21 by arlandia         ###   ########.fr       */
+/*   Updated: 2022/11/08 17:04:32 by arlandia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@ char	*get_next_line(int fd)
 	if (!saveread)
 		return (NULL);
 	line = ft_getline(saveread);
+	saveread = ft_restline(saveread);
 	return (line);
 }
 
