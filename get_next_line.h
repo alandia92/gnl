@@ -6,7 +6,7 @@
 /*   By: arlandia <arlandia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 12:39:38 by arrate            #+#    #+#             */
-/*   Updated: 2022/11/02 20:39:44 by arlandia         ###   ########.fr       */
+/*   Updated: 2022/11/08 16:11:00 by arlandia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define GET_NEXT_LINE_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1
+#  define BUFFER_SIZE
 # endif
 
 # include <stdlib.h>
@@ -27,5 +27,7 @@ char	*ft_strdup(char *s1);
 char	*ft_strjoin(char *s1, char *s2);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*get_next_line(int fd);
+int 	ft_countline(char *s);
+char 	*ft_restline(char *line);
 
 #endif

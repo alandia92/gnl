@@ -6,7 +6,7 @@
 /*   By: arlandia <arlandia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 12:39:30 by arrate            #+#    #+#             */
-/*   Updated: 2022/11/07 18:06:19 by mvalient         ###   ########.fr       */
+/*   Updated: 2022/11/08 16:15:00 by arlandia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,20 @@
 
 char	*ft_strchr(char *s, int c)
 {
-	int	i;
+	int		i;
+	char	*str;
 
-	i = -1;
-	while (s[++i])
+	i = 0;
+	str = (char *)s;
+	while (str[i])
 	{
-		if (s[i] == (c % 256))
-			return ((char *)&s[i]);
+		if (str[i] == (char)c)
+			return (&str[i]);
+		i++;
 	}
-	if (s[i] == (c % 256))
-		return ((char *)&s[i]);
-	return (NULL);
+	if ((char)c == '\0')
+		return (&str[i]);
+	return (0);
 }
 
 size_t 	ft_strlen(const char *s)
@@ -84,6 +87,16 @@ char	*ft_strjoin(char *s1, char *s2)
 	free (s1);
 	//free(s2);
 	return (str);
+}
+
+int ft_countline(char *s)
+{
+	int i;
+
+	i = 0;
+	while(s[i] == '\n')
+		i++;
+	return (i);
 }
 
 // char	*ft_substr(char const *s, unsigned int start, size_t len)

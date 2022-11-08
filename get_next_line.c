@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arlandia <arlandia@student.42.fr>          +#+  +:+       +#+        */
+/*   By: arlandia <arlandia@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/29 12:37:12 by arrate            #+#    #+#             */
-/*   Updated: 2022/11/07 17:49:29 by mvalient         ###   ########.fr       */
+/*   Created: 2022/11/07 18:53:14 by arlandia          #+#    #+#             */
+/*   Updated: 2022/11/08 16:09:21 by arlandia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <sys/fcntl.h>
 #include "stdio.h"
-#include "get_next_line.h"
+#include "get_next_line.h
+
 
 char	*ft_getline(char *save)
 {
@@ -40,6 +41,26 @@ char	*ft_getline(char *save)
 	else if (save[i] == '\0')
 		line[i] = '\0';
 	return (line);
+}
+
+char *ft_restline(char *line)
+{
+	int i;
+	int j;
+	char *rest;
+
+	if (!line)
+		return (NULL);
+	i = ft_countline(line);
+	rest = malloc(sizeof (char) * ft_strlen(line) - i);
+	if (!rest)
+		return (NULL);
+	i++;
+	j = 0;
+	while (line[i])
+		rest[j++] = line[i++];
+	rest[j] ='\0';
+	return (rest);
 }
 
 char *ft_readline(int fd, char *line)
