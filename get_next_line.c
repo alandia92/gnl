@@ -6,13 +6,13 @@
 /*   By: arlandia <arlandia@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 18:53:14 by arlandia          #+#    #+#             */
-/*   Updated: 2022/11/08 17:04:32 by arlandia         ###   ########.fr       */
+/*   Updated: 2022/11/08 17:25:08 by arlandia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <sys/fcntl.h>
 #include "stdio.h"
-#include "get_next_line.h
+#include "get_next_line.h"
 
 
 char	*ft_getline(char *save)

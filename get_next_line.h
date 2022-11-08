@@ -6,7 +6,7 @@
 /*   By: arlandia <arlandia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 12:39:38 by arrate            #+#    #+#             */
-/*   Updated: 2022/11/08 16:11:00 by arlandia         ###   ########.fr       */
+/*   Updated: 2022/11/08 17:29:08 by arlandia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define GET_NEXT_LINE_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE
+#  define BUFFER_SIZE 10
 # endif
 
 # include <stdlib.h>

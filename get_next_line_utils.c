@@ -6,7 +6,7 @@
 /*   By: arlandia <arlandia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 12:39:30 by arrate            #+#    #+#             */
-/*   Updated: 2022/11/08 16:15:00 by arlandia         ###   ########.fr       */
+/*   Updated: 2022/11/08 17:04:32 by arlandia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ int ft_countline(char *s)
 	int i;
 
 	i = 0;
-	while(s[i] == '\n')
+	while(s[i] != '\n')
 		i++;
 	return (i);
 }
