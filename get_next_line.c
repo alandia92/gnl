@@ -3,48 +3,48 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arlandia <arlandia@student.42urduliz.com>  +#+  +:+       +#+        */
+/*   By: arlandia <arlandia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 18:53:14 by arlandia          #+#    #+#             */
-/*   Updated: 2022/11/08 17:25:08 by arlandia         ###   ########.fr       */
+/*   Updated: 2022/11/21 19:07:18 by arlandia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <sys/fcntl.h>
-#include "stdio.h"
 #include "get_next_line.h"
 
-
-char	*ft_getline(char *save)
+char	*ft_get_line(char *save)
 {
-	int i;
-	char *line;
+	int		i;
+	char	*line;
 
 	i = 0;
 	if (!save[i])
 		return (NULL);
 	i = ft_countline(save);
-	line = malloc(sizeof(char) * (i + 2));
+	line = malloc (sizeof(char) * (i + 2));
 	if (!line)
 		return (NULL);
 	i = 0;
-	while (save[i] != '\n') {
+	while (save[i] && save[i] != '\n')
+	{
 		line[i] = save[i];
 		i++;
 	}
-	if (save[i] == '\n') {
+	if (save[i] == '\n')
+	{
 		line[i] = '\n';
 		line[i + 1] = '\0';
-	} else if (save[i] == '\0')
+	}
+	else if (save[i] == '\0')
 		line[i] = '\0';
 	return (line);
 }
 
-char *ft_restline(char *line)
+char	*ft_restline(char *line)
 {
-	int i;
-	int j;
-	char *rest;
+	int		i;
+	int		j;
+	char	*rest;
 
 	i = ft_countline(line);
 	if (!line[i])
@@ -52,19 +52,19 @@ char *ft_restline(char *line)
 		free(line);
 		return (NULL);
 	}
-	rest = malloc(sizeof (char) * (ft_strlen(line) - i));
+	rest = malloc(sizeof(char) * (ft_strlen(line) - i));
 	if (!rest)
 		return (NULL);
 	i++;
 	j = 0;
 	while (line[i])
 		rest[j++] = line[i++];
-	rest[j] ='\0';
+	rest[j] = '\0';
 	free(line);
 	return (rest);
 }
 
-char *ft_readline(int fd, char *line)
+char	*ft_readline(int fd, char *line)
 {
 	char	*aux;
 	int		i;
@@ -77,7 +77,12 @@ char *ft_readline(int fd, char *line)
 	{
 		i = read(fd, aux, BUFFER_SIZE);
 		if (i == -1)
-			return (free (aux), NULL);
+		{
+			free (aux);
+			return (NULL);
+		}
+		if (i == 0)
+			break ;
 		aux[i] = '\0';
 		line = ft_strjoin(line, aux);
 	}
@@ -98,18 +103,4 @@ char	*get_next_line(int fd)
 	line = ft_get_line(saveread);
 	saveread = ft_restline(saveread);
 	return (line);
-}
-
-int	main()
-{
-	int fd;
-	char *line;
- 	fd = open("text.txt", O_RDONLY);
-	line = get_next_line(fd);
-	while(line)
-	{
-		printf("%s", line);
-		line = get_next_line(fd);
-	}
-	close(fd);
 }

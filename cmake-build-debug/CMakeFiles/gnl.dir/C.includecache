@@ -6,6 +6,14 @@
 
 #IncludeRegexTransform: 
 
+/Users/arlandia/projects/gnl/get_next_line.c
+sys/fcntl.h
+-
+stdio.h
+/Users/arlandia/projects/gnl/stdio.h
+get_next_line.h
+/Users/arlandia/projects/gnl/get_next_line.h
+
 /Users/arlandia/projects/gnl/get_next_line.h
 stdlib.h
 -
