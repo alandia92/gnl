@@ -6,7 +6,7 @@
 /*   By: arlandia <arlandia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 12:39:30 by arrate            #+#    #+#             */
-/*   Updated: 2022/11/08 17:04:32 by arlandia         ###   ########.fr       */
+/*   Updated: 2022/11/21 16:19:57 by arlandia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,30 +40,6 @@ size_t 	ft_strlen(const char *s)
 	return (i);
 }
 
-char	*ft_strdup(char *s1)
-{
-	char	*str;
-	size_t i;
-
-	i = 0;
-	if (!s1)
-		return (NULL);
-	while (s1[i])
-		i++;
-	str = malloc(sizeof (char) * s1[i+1]);
-	if (!str)
-		return (free (s1), NULL);
-	i = 0;
-	while (s1[i])
-	{
-		str[i] = s1[i];
-		i++;
-	}
-	str[i] = 0;
-	free(s1);
-	return (&str[i]);
-}
-
 char	*ft_strjoin(char *s1, char *s2)
 {
 	int	i;
@@ -85,7 +61,6 @@ char	*ft_strjoin(char *s1, char *s2)
 		str[i++] = s2 [j++];
 	str[len] = 0;
 	free (s1);
-	//free(s2);
 	return (str);
 }
 
@@ -98,26 +73,3 @@ int ft_countline(char *s)
 		i++;
 	return (i);
 }
-
-// char	*ft_substr(char const *s, unsigned int start, size_t len)
-// {
-// 	char	*copy;
-// 	size_t	i;
-
-// 	if (len > (size_t)ft_strlen(s))
-// 		len = (size_t)ft_strlen(s);
-// 	if (start > (unsigned int)ft_strlen(s))
-// 		start = ft_strlen(s);
-// 	copy = (char *)malloc(sizeof(char) * (len + 1));
-// 	if (copy == 0)
-// 		return (0);
-// 	i = 0;
-// 	while (s[i + start] && len)
-// 	{
-// 		copy[i] = s[i + start];
-// 		i++;
-// 		len--;
-// 	}
-// 	copy[i] = '\0';
-// 	return (copy);
-// }
